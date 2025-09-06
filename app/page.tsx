@@ -57,12 +57,12 @@ export default function Home() {
       <header className={`fixed top-0 w-full z-20 transition-colors ${scrolled ? "bg-white shadow-md text-black" : "bg-gradient-to-b from-green-900/60 to-transparent text-white"}`}>
         <div className="max-w-7xl mx-auto grid grid-cols-3 items-center py-4 px-6 relative">
           {/* Left: Logo */}
-          <div className="flex items-center">
+          <div className="flex items-center justify-start">
             <img src="/logo-svg.svg" alt="Logo" className="h-12 w-auto" />
           </div>
           {/* Center: Site Title */}
-          <div className="hidden md:block text-center font-bold text-lg cursor-pointer justify-self-center">
-            <a href="#home">Green Choice Excavation</a>
+          <div className="flex justify-center font-bold text-lg cursor-pointer">
+            <a href="#home" className="hidden md:block">Green Choice Excavation</a>
           </div>
           {/* Right: Nav/Hamburger */}
           <div className="flex justify-end items-center">
@@ -84,7 +84,7 @@ export default function Home() {
               </ul>
             </nav>
             {/* Mobile Hamburger */}
-            <div className="flex justify-end md:hidden w-full">
+            <div className="md:hidden ml-auto">
               <button
                 aria-label={menuOpen ? "Close menu" : "Open menu"}
                 className="text-3xl focus:outline-none"
@@ -96,7 +96,7 @@ export default function Home() {
           </div>
           {/* Mobile Menu Dropdown */}
           <div
-            className={`absolute top-full left-0 w-full bg-white shadow-md flex flex-col items-end pr-6 space-y-4 py-6 md:hidden z-30
+            className={`absolute top-full left-0 w-full bg-white shadow-md flex flex-col items-center justify-center text-center space-y-4 py-6 md:hidden z-30
               transform transition-all duration-300 ease-in-out
               ${menuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0 overflow-hidden"}
             `}
