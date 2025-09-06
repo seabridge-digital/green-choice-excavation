@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,29 +55,82 @@ export default function Home() {
   return (
     <main className="p-6 bg-gradient-to-b from-green-50 to-amber-50 font-sans">
       <header className={`fixed top-0 w-full z-20 transition-colors ${scrolled ? "bg-white shadow-md text-black" : "bg-gradient-to-b from-green-900/60 to-transparent text-white"}`}>
-        <div className="max-w-7xl mx-auto grid grid-cols-3 items-center py-4 px-6">
+        <div className="max-w-7xl mx-auto grid grid-cols-3 items-center py-4 px-6 relative">
+          {/* Left: Logo */}
           <div className="flex items-center">
             <img src="/logo-svg.svg" alt="Logo" className="h-12 w-auto" />
           </div>
-          <div className="hidden md:block text-center font-bold text-lg cursor-pointer">
+          {/* Center: Site Title */}
+          <div className="hidden md:block text-center font-bold text-lg cursor-pointer justify-self-center">
             <a href="#home">Green Choice Excavation</a>
           </div>
-          <nav className="flex justify-end">
-            <ul className="flex space-x-8 font-semibold">
-              <li>
-                <a href="#home" className="hover:text-amber-700">Home</a>
-              </li>
-              <li>
-                <a href="#services" className="hover:text-amber-700">Services</a>
-              </li>
-              <li>
-                <a href="#gallery" className="hover:text-amber-700">Gallery</a>
-              </li>
-              <li>
-                <a href="#contact" className="hover:text-amber-700">Contact</a>
-              </li>
-            </ul>
-          </nav>
+          {/* Right: Nav/Hamburger */}
+          <div className="flex justify-end items-center">
+            {/* Desktop Nav */}
+            <nav className="hidden md:flex justify-end">
+              <ul className="flex space-x-8 font-semibold">
+                <li>
+                  <a href="#home" className="hover:text-amber-700">Home</a>
+                </li>
+                <li>
+                  <a href="#services" className="hover:text-amber-700">Services</a>
+                </li>
+                <li>
+                  <a href="#gallery" className="hover:text-amber-700">Gallery</a>
+                </li>
+                <li>
+                  <a href="#contact" className="hover:text-amber-700">Contact</a>
+                </li>
+              </ul>
+            </nav>
+            {/* Mobile Hamburger */}
+            <div className="flex justify-end md:hidden w-full">
+              <button
+                aria-label={menuOpen ? "Close menu" : "Open menu"}
+                className="text-3xl focus:outline-none"
+                onClick={() => setMenuOpen((open) => !open)}
+              >
+                {menuOpen ? "✕" : "☰"}
+              </button>
+            </div>
+          </div>
+          {/* Mobile Menu Dropdown */}
+          <div
+            className={`absolute top-full left-0 w-full bg-white shadow-md flex flex-col items-end pr-6 space-y-4 py-6 md:hidden z-30
+              transform transition-all duration-300 ease-in-out
+              ${menuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0 overflow-hidden"}
+            `}
+            style={{ pointerEvents: menuOpen ? "auto" : "none" }}
+          >
+            <a
+              href="#home"
+              className="text-lg font-semibold text-gray-800 hover:text-amber-700"
+              onClick={() => setMenuOpen(false)}
+            >
+              Home
+            </a>
+            <a
+              href="#services"
+              className="text-lg font-semibold text-gray-800 hover:text-amber-700"
+              onClick={() => setMenuOpen(false)}
+            >
+              Services
+            </a>
+            <a
+              href="#gallery"
+              className="text-lg font-semibold text-gray-800 hover:text-amber-700"
+              onClick={() => setMenuOpen(false)}
+            >
+              Gallery
+            </a>
+            <a
+              href="#contact"
+              className="text-lg font-semibold text-gray-800 hover:text-amber-700"
+              onClick={() => setMenuOpen(false)}
+            >
+              Contact
+            </a>
+          </div>
         </div>
       </header>
 
