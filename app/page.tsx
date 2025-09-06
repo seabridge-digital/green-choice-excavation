@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import Header from "./header"
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false)
@@ -53,99 +54,42 @@ export default function Home() {
   }
 
   return (
-    <main className="p-6 bg-gradient-to-b from-green-50 to-amber-50 font-sans">
-      <header className={`fixed top-0 w-full z-20 transition-colors ${scrolled ? "bg-white shadow-md text-black" : "bg-gradient-to-b from-green-900/60 to-transparent text-white"}`}>
-        <div className="max-w-7xl mx-auto grid grid-cols-3 items-center py-4 px-6 relative">
-          {/* Left: Logo */}
-          <div className="flex items-center justify-start">
-            <img src="/logo-svg.svg" alt="Logo" className="h-12 w-auto" />
-          </div>
-          {/* Center: Site Title */}
-          <div className="flex justify-center font-bold text-lg cursor-pointer">
-            <a href="#home" className="hidden md:block">Green Choice Excavation</a>
-          </div>
-          {/* Right: Nav/Hamburger */}
-          <div className="flex justify-end items-center">
-            {/* Desktop Nav */}
-            <nav className="hidden md:flex justify-end">
-              <ul className="flex space-x-8 font-semibold">
-                <li>
-                  <a href="#home" className="hover:text-amber-700">Home</a>
-                </li>
-                <li>
-                  <a href="#services" className="hover:text-amber-700">Services</a>
-                </li>
-                <li>
-                  <a href="#gallery" className="hover:text-amber-700">Gallery</a>
-                </li>
-                <li>
-                  <a href="#contact" className="hover:text-amber-700">Contact</a>
-                </li>
-              </ul>
-            </nav>
-            {/* Mobile Hamburger */}
-            <div className="md:hidden ml-auto">
-              <button
-                aria-label={menuOpen ? "Close menu" : "Open menu"}
-                className="text-3xl focus:outline-none"
-                onClick={() => setMenuOpen((open) => !open)}
-              >
-                {menuOpen ? "✕" : "☰"}
-              </button>
-            </div>
-          </div>
-          {/* Mobile Menu Dropdown */}
-          <div
-            className={`absolute top-full left-0 w-full bg-white shadow-md flex flex-col items-center justify-center text-center space-y-4 py-6 md:hidden z-30
-              transform transition-all duration-300 ease-in-out
-              ${menuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0 overflow-hidden"}
-            `}
-            style={{ pointerEvents: menuOpen ? "auto" : "none" }}
-          >
-            <a
-              href="#home"
-              className="text-lg font-semibold text-gray-800 hover:text-amber-700"
-              onClick={() => setMenuOpen(false)}
-            >
-              Home
-            </a>
-            <a
-              href="#services"
-              className="text-lg font-semibold text-gray-800 hover:text-amber-700"
-              onClick={() => setMenuOpen(false)}
-            >
-              Services
-            </a>
-            <a
-              href="#gallery"
-              className="text-lg font-semibold text-gray-800 hover:text-amber-700"
-              onClick={() => setMenuOpen(false)}
-            >
-              Gallery
-            </a>
-            <a
-              href="#contact"
-              className="text-lg font-semibold text-gray-800 hover:text-amber-700"
-              onClick={() => setMenuOpen(false)}
-            >
-              Contact
-            </a>
-          </div>
-        </div>
-      </header>
+    <main className="bg-gradient-to-b from-green-50 to-amber-50 font-sans overflow-x-hidden">
+      <Header scrolled={scrolled} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
 
-      <section id="home" className="relative h-[80vh] pt-20 flex items-center justify-center text-center text-white">
-        <img src="/hero.jpg" alt="Hero" className="absolute inset-0 w-full h-full object-cover rounded-none" />
+      <section
+        id="home"
+        className="relative w-full min-h-screen flex items-center justify-center text-center text-white m-0 p-0"
+      >
+        <img
+          src="/hero.jpg"
+          alt="Hero"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
         <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-amber-100/70 to-transparent"></div>
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
         <div className="relative z-10 flex justify-center w-full">
           <div className="w-full max-w-2xl mx-auto">
             <h1 className="text-6xl md:text-7xl font-bold mb-4 text-white">Green Choice Excavation</h1>
-            <p className="text-2xl md:text-3xl text-white">Professional excavation & site services</p>
-            <p className="text-lg md:text-xl mt-2 text-white">Based out of Lancaster, SC — proudly serving both North and South Carolina.</p>
+            <p className="text-2xl md:text-3xl text-white">
+              Professional excavation & site services
+            </p>
+            <p className="text-lg md:text-xl mt-2 text-white">
+              Based out of Lancaster, SC — proudly serving both North and South Carolina.
+            </p>
             <div className="mt-6 flex flex-col sm:flex-row justify-center gap-4">
-              <a href="tel:7042906688" className="bg-green-700 hover:bg-green-800 text-white px-6 py-3 rounded-lg font-semibold text-center">Call 704-290-6688</a>
-              <a href="mailto:gce10@gmail.com" className="bg-white text-amber-800 hover:bg-gray-100 px-6 py-3 rounded-lg font-semibold text-center">Email Us</a>
+              <a
+                href="tel:7042906688"
+                className="bg-green-700 hover:bg-green-800 text-white px-6 py-3 rounded-lg font-semibold text-center"
+              >
+                Call 704-290-6688
+              </a>
+              <a
+                href="mailto:gce10@gmail.com"
+                className="bg-white text-amber-800 hover:bg-gray-100 px-6 py-3 rounded-lg font-semibold text-center"
+              >
+                Email Us
+              </a>
             </div>
           </div>
         </div>
@@ -212,7 +156,7 @@ export default function Home() {
       </section>
 
       <div className="my-12 flex justify-center">
-        <div className="w-24 h-1 bg-gradient-to-r from-green-600 to-amber-600 rounded-full"></div>
+        <div className="w-24 h-1 bg-gradient-to-r from-green-900 to-green-400 rounded-full"></div>
       </div>
 
       <section id="about" className="mb-12">
@@ -251,7 +195,7 @@ export default function Home() {
       </section>
 
       <div className="my-12 flex justify-center">
-        <div className="w-24 h-1 bg-gradient-to-r from-green-600 to-amber-600 rounded-full"></div>
+        <div className="w-24 h-1 bg-gradient-to-r from-green-900 to-green-400 rounded-full"></div>
       </div>
 
       <section id="gallery">
@@ -288,7 +232,7 @@ export default function Home() {
         <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-md p-8 mb-12">
           <h2 className="text-4xl md:text-5xl font-extrabold text-green-900 text-center mb-8">Contact</h2>
           {/* Call/Email Card */}
-          <div className="bg-gradient-to-r from-green-700 to-amber-600 text-white rounded-xl shadow-md p-6 mb-8 text-center">
+          <div className="bg-gradient-to-r from-green-900 to-green-400 text-white rounded-xl shadow-md p-6 mb-8 text-center">
             <h3 className="text-2xl font-bold mb-4">Ready to Get Started?</h3>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <a
