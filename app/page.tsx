@@ -95,7 +95,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="services" className="mb-12">
+      <section id="services" className="mb-12 scroll-mt-24">
         <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-md p-8 mb-12">
           <h2 className="text-4xl md:text-5xl font-extrabold text-green-900 text-center mb-8">Our Services</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -159,7 +159,7 @@ export default function Home() {
         <div className="w-24 h-1 bg-gradient-to-r from-green-900 to-green-400 rounded-full"></div>
       </div>
 
-      <section id="about" className="mb-12">
+      <section id="about" className="mb-12 scroll-mt-24">
         <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-md p-8 mb-12">
           <div className="overflow-hidden flex flex-col md:flex-row">
             {/* Left: Photo */}
@@ -198,7 +198,7 @@ export default function Home() {
         <div className="w-24 h-1 bg-gradient-to-r from-green-900 to-green-400 rounded-full"></div>
       </div>
 
-      <section id="gallery">
+      <section id="gallery" className="scroll-mt-24">
         <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-md p-8 mb-12">
           <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 text-center mb-8">Gallery</h2>
           <div className="relative w-full max-w-4xl mx-auto">
@@ -228,7 +228,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="contact" className="mt-12 max-w-4xl mx-auto">
+      <section id="contact" className="mt-12 max-w-4xl mx-auto scroll-mt-24">
         <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-md p-8 mb-12">
           <h2 className="text-4xl md:text-5xl font-extrabold text-green-900 text-center mb-8">Contact</h2>
           {/* Call/Email Card */}

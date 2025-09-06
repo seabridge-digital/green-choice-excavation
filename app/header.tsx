@@ -11,7 +11,7 @@ export default function Header({ menuOpen, setMenuOpen, scrolled }: HeaderProps)
         scrolled ? "bg-white shadow-md" : "bg-transparent"
       }`}
     >
-      <div className="max-w-5xl mx-auto grid grid-cols-3 items-center px-6">
+      <div className="max-w-7xl mx-auto grid grid-cols-3 items-center px-6">
         <div className="flex justify-start">
           <img src="/logo-svg.svg" alt="Green Choice Excavation Logo" className="h-10 w-auto" />
         </div>
