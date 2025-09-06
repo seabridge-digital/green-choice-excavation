@@ -101,36 +101,54 @@ export default function Home() {
         <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-md p-8 mb-12">
           <h2 className="text-4xl md:text-5xl font-extrabold text-green-900 text-center mb-8">Our Services</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg border border-amber-100 transition-transform transform hover:-translate-y-1">
+            <a
+              href="#contact"
+              className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg border border-amber-100 transition-transform transform hover:-translate-y-1"
+            >
               <img src="/treeremoval1.jpg" alt="Land Clearing" className="w-full h-80 object-cover rounded-xl mb-4 px-2" />
               <h3 className="text-2xl font-bold text-black mb-2">Land Clearing</h3>
               <p className="text-lg text-gray-700">Efficient land clearing services to ready your property for construction or landscaping.</p>
-            </div>
-            <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg border border-amber-100 transition-transform transform hover:-translate-y-1">
+            </a>
+            <a
+              href="#contact"
+              className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg border border-amber-100 transition-transform transform hover:-translate-y-1"
+            >
               <img src="/grading2.jpg" alt="Grading" className="w-full h-80 object-cover rounded-xl mb-4 px-2" />
               <h3 className="text-2xl font-bold text-black mb-2">Grading</h3>
               <p className="text-lg text-gray-700">Precision grading services to ensure proper leveling, drainage, and site preparation.</p>
-            </div>
-            <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg border border-amber-100 transition-transform transform hover:-translate-y-1">
+            </a>
+            <a
+              href="#contact"
+              className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg border border-amber-100 transition-transform transform hover:-translate-y-1"
+            >
               <img src="/grading5.jpg" alt="Site Prep" className="w-full h-80 object-cover rounded-xl mb-4 px-2" />
               <h3 className="text-2xl font-bold text-black mb-2">Site Prep</h3>
               <p className="text-lg text-gray-700">Comprehensive site preparation including grading, leveling, and soil stabilization.</p>
-            </div>
-            <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg border border-amber-100 transition-transform transform hover:-translate-y-1">
+            </a>
+            <a
+              href="#contact"
+              className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg border border-amber-100 transition-transform transform hover:-translate-y-1"
+            >
               <img src="/gravel3.jpg" alt="Gravel Driveways" className="w-full h-80 object-cover rounded-xl mb-4 px-2" />
               <h3 className="text-2xl font-bold text-black mb-2">Gravel Driveways</h3>
               <p className="text-lg text-gray-700">Durable gravel driveway installation and maintenance for residential and commercial properties.</p>
-            </div>
-            <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg border border-amber-100 transition-transform transform hover:-translate-y-1">
+            </a>
+            <a
+              href="#contact"
+              className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg border border-amber-100 transition-transform transform hover:-translate-y-1"
+            >
               <img src="/excavating1.jpeg" alt="Excavation" className="w-full h-80 object-cover rounded-xl mb-4 px-2" />
               <h3 className="text-2xl font-bold text-black mb-2">Excavation</h3>
               <p className="text-lg text-gray-700">Professional excavation services for any project size, ensuring safety and precision.</p>
-            </div>
-            <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg border border-amber-100 transition-transform transform hover:-translate-y-1">
+            </a>
+            <a
+              href="#contact"
+              className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg border border-amber-100 transition-transform transform hover:-translate-y-1"
+            >
               <img src="/skid-steer2.jpg" alt="Skid Steer Services" className="w-full h-80 object-cover rounded-xl mb-4 px-2" />
               <h3 className="text-2xl font-bold text-black mb-2">Skid Steer Services</h3>
               <p className="text-lg text-gray-700">Versatile skid steer services for grading, material handling, and site cleanup to support your project needs.</p>
-            </div>
+            </a>
           </div>
           <div className="flex flex-col sm:flex-row justify-center gap-4 mt-8">
             <a href="tel:7042906688" className="bg-green-700 hover:bg-green-800 text-white px-8 py-4 rounded-lg font-bold text-center">Call 704-290-6688</a>
