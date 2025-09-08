@@ -6,6 +6,7 @@ import Header from "./header"
 export default function Home() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const [showGravelDropdown, setShowGravelDropdown] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,30 +16,31 @@ export default function Home() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const galleryImages = [
-    "/excavating1.jpeg",
-    "/grading1.jpg",
-    "/grading2.jpg",
-    "/grading3.jpg",
-    "/grading4.jpg",
-    "/grading5.jpg",
-    "/grading6.jpg",
-    "/gravel1.jpg",
-    "/gravel2.jpg",
-    "/gravel3.jpg",
-    "/gravel4.jpg",
-    "/gravel5.jpg",
-    "/gravel6.jpg",
-    "/gravel7.jpg",
-    "/level8.jpg",
-    "/leveling1.jpg",
-    "/leveling2.jpg",
-    "/leveling3.jpg",
-    "/leveling4.jpg",
-    "/leveling5.jpg",
-    "/leveling6.jpg",
-    "/treeremoval1.jpg"
-  ]
+ const galleryImages = [
+  "/excavating1.jpeg",
+  "/grading1.jpg",
+  "/grading2.jpg",
+  "/grading3.jpg",
+  "/grading4.jpg",
+  "/grading5.jpg",
+  "/grading6.jpg",
+  "/gravel1.jpg",
+  "/gravel2.jpg",
+  "/gravel3.jpg",
+  "/gravel4.jpg",
+  "/gravel5.jpg",
+  "/gravel6.jpg",
+  "/gravel7.jpg",
+  "/level8.jpg",
+  "/leveling1.jpg",
+  "/leveling2.jpg",
+  "/leveling3.jpg",
+  "/leveling4.jpg",
+  "/leveling5.jpg",
+  "/leveling6.jpg",
+  "/treeremoval1.jpg"
+].filter(Boolean)  // 🚀 removes any undefined/empty entries
+
   const [currentIndex, setCurrentIndex] = useState(0)
 
   const prevImage = () => {
@@ -123,14 +125,28 @@ export default function Home() {
               <h3 className="text-2xl font-bold text-black mb-2">Site Prep</h3>
               <p className="text-lg text-gray-700">Comprehensive site preparation including grading, leveling, and soil stabilization.</p>
             </a>
-            <a
-              href="#contact"
-              className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg border border-amber-100 transition-transform transform hover:-translate-y-1"
-            >
+            <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg border border-amber-100 transition-transform transform hover:-translate-y-1">
               <img src="/gravel3.jpg" alt="Gravel Driveways" className="w-full h-80 object-cover rounded-xl mb-4 px-2" />
-              <h3 className="text-2xl font-bold text-black mb-2">Gravel Driveways</h3>
-              <p className="text-lg text-gray-700">Durable gravel driveway installation and maintenance for residential and commercial properties.</p>
-            </a>
+              <button
+                type="button"
+                onClick={() => setShowGravelDropdown(!showGravelDropdown)}
+                className="flex justify-between items-center w-full text-left"
+              >
+                <h3 className="text-2xl font-bold text-black mb-2">Gravel Driveways</h3>
+                <span className={`transform transition-transform ${showGravelDropdown ? "rotate-180" : ""}`}>▼</span>
+              </button>
+              <p className="text-lg text-gray-700">
+                Durable gravel driveway installation and maintenance for residential and commercial properties.
+              </p>
+              {showGravelDropdown && (
+                <div className="mt-3 p-3 bg-green-50 rounded-md text-gray-700 text-sm">
+                  Optional Add-On: <strong>Geo Matting</strong> — improves driveway stability.<br />
+                  <a href="https://www.ndspro.com" target="_blank" className="text-green-700 underline">
+                    Learn more at NDS Pro
+                  </a>
+                </div>
+              )}
+            </div>
             <a
               href="#contact"
               className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg border border-amber-100 transition-transform transform hover:-translate-y-1"
@@ -163,11 +179,11 @@ export default function Home() {
         <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-md p-8 mb-12">
           <div className="overflow-hidden flex flex-col md:flex-row">
             {/* Left: Photo */}
-            <div className="md:w-1/2 w-full">
+            <div className="md:w-1/2 w-full flex items-center justify-center">
               <img
                 src="/gary-headshot.jpg"
                 alt="Excavating equipment at work"
-                className="rounded-xl shadow-md object-cover h-80 w-full md:h-full"
+                className="rounded-xl shadow-md object-contain h-96 w-auto"
               />
             </div>
             {/* Right: Text Content */}
@@ -263,11 +279,11 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                <input type="email" id="email" name="email" className="w-full p-3 border border-gray-300 rounded-lg" />
+                <input type="email" id="email" name="email" required className="w-full p-3 border border-gray-300 rounded-lg" />
               </div>
               <div>
                 <label htmlFor="address" className="block text-sm font-medium text-gray-700 mb-1">Address</label>
-                <input type="text" id="address" name="address" className="w-full p-3 border border-gray-300 rounded-lg" />
+                <input type="text" id="address" name="address" required className="w-full p-3 border border-gray-300 rounded-lg" />
               </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -296,43 +312,43 @@ export default function Home() {
               <div className="space-y-2">
                 <div>
                   <label className="inline-flex items-center">
-                    <input type="checkbox" name="servicesNeeded" value="Land Clearing" className="mr-2" />
+                    <input type="checkbox" name="servicesNeeded" value="Land Clearing" className="mr-2" required />
                     Land Clearing
                   </label>
                 </div>
                 <div>
                   <label className="inline-flex items-center">
-                    <input type="checkbox" name="servicesNeeded" value="Grading" className="mr-2" />
+                    <input type="checkbox" name="servicesNeeded" value="Grading" className="mr-2" required />
                     Grading
                   </label>
                 </div>
                 <div>
                   <label className="inline-flex items-center">
-                    <input type="checkbox" name="servicesNeeded" value="Site Prep" className="mr-2" />
+                    <input type="checkbox" name="servicesNeeded" value="Site Prep" className="mr-2" required />
                     Site Prep
                   </label>
                 </div>
                 <div>
                   <label className="inline-flex items-center">
-                    <input type="checkbox" name="servicesNeeded" value="Gravel Driveways" className="mr-2" />
+                    <input type="checkbox" name="servicesNeeded" value="Gravel Driveways" className="mr-2" required />
                     Gravel Driveways
                   </label>
                 </div>
                 <div>
                   <label className="inline-flex items-center">
-                    <input type="checkbox" name="servicesNeeded" value="Excavation" className="mr-2" />
+                    <input type="checkbox" name="servicesNeeded" value="Excavation" className="mr-2" required />
                     Excavation
                   </label>
                 </div>
                 <div>
                   <label className="inline-flex items-center">
-                    <input type="checkbox" name="servicesNeeded" value="Skid Steer Services" className="mr-2" />
+                    <input type="checkbox" name="servicesNeeded" value="Skid Steer Services" className="mr-2" required />
                     Skid Steer Services
                   </label>
                 </div>
                 <div>
                   <label className="inline-flex items-center">
-                    <input type="checkbox" name="servicesNeeded" value="Other" className="mr-2" />
+                    <input type="checkbox" name="servicesNeeded" value="Other" className="mr-2" required />
                     Other
                   </label>
                 </div>
@@ -340,11 +356,11 @@ export default function Home() {
             </fieldset>
             <div>
               <label htmlFor="comments" className="block text-sm font-medium text-gray-700 mb-1">Comments</label>
-              <textarea id="comments" name="comments" rows={4} className="w-full p-3 border border-gray-300 rounded-lg"></textarea>
+              <textarea id="comments" name="comments" rows={4} className="w-full p-3 border border-gray-300 rounded-lg" required></textarea>
             </div>
             <div className="flex items-start space-x-2 text-sm text-gray-700 mt-4">
               <input type="checkbox" id="acknowledge" name="acknowledge" required />
-              <label htmlFor="acknowledge">I understand there is a minimum $500 project cost requiring heavy equipment</label>
+              <label htmlFor="acknowledge">I understand there is a minimum $650 project cost requiring heavy equipment</label>
             </div>
             <button type="submit" className="bg-green-700 hover:bg-green-800 text-white px-6 py-3 rounded-lg font-bold mt-4">Submit</button>
           </form>
