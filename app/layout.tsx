@@ -2,7 +2,7 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
 import Script from "next/script";
-import { Analytics } from "@vercel/analytics/react"; // <-- fix
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,7 +23,6 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="icon" href="/logo-svg.svg" type="image/svg+xml" />
-
         {/* Google tag (gtag.js) */}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
@@ -40,7 +39,7 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         {children}
-        <Analytics /> {/* <-- add this */}
+        <Analytics />
       </body>
     </html>
   );
