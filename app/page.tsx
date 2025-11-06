@@ -1,4 +1,3 @@
-
 "use client"
 
 import { useState, useEffect } from "react"
@@ -8,6 +7,7 @@ export default function Home() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [showGravelDropdown, setShowGravelDropdown] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,30 +17,30 @@ export default function Home() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
- const galleryImages = [
-  "/excavating1.jpeg",
-  "/grading1.jpg",
-  "/grading2.jpg",
-  "/grading3.jpg",
-  "/grading4.jpg",
-  "/grading5.jpg",
-  "/grading6.jpg",
-  "/gravel1.jpg",
-  "/gravel2.jpg",
-  "/gravel3.jpg",
-  "/gravel4.jpg",
-  "/gravel5.jpg",
-  "/gravel6.jpg",
-  "/gravel7.jpg",
-  "/level8.jpg",
-  "/leveling1.jpg",
-  "/leveling2.jpg",
-  "/leveling3.jpg",
-  "/leveling4.jpg",
-  "/leveling5.jpg",
-  "/leveling6.jpg",
-  "/treeremoval1.jpg"
-].filter(Boolean)  // 🚀 removes any undefined/empty entries
+  const galleryImages = [
+    "/excavating1.jpeg",
+    "/grading1.jpg",
+    "/grading2.jpg",
+    "/grading3.jpg",
+    "/grading4.jpg",
+    "/grading5.jpg",
+    "/grading6.jpg",
+    "/gravel1.jpg",
+    "/gravel2.jpg",
+    "/gravel3.jpg",
+    "/gravel4.jpg",
+    "/gravel5.jpg",
+    "/gravel6.jpg",
+    "/gravel7.jpg",
+    "/level8.jpg",
+    "/leveling1.jpg",
+    "/leveling2.jpg",
+    "/leveling3.jpg",
+    "/leveling4.jpg",
+    "/leveling5.jpg",
+    "/leveling6.jpg",
+    "/treeremoval1.jpg"
+  ].filter(Boolean)
 
   const [currentIndex, setCurrentIndex] = useState(0)
 
@@ -60,6 +60,7 @@ export default function Home() {
     <main className="bg-gradient-to-b from-green-50 to-amber-50 font-sans overflow-x-hidden">
       <Header scrolled={scrolled} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
 
+      {/* HERO */}
       <section
         id="home"
         className="relative w-full min-h-screen flex items-center justify-center text-center text-white m-0 p-0"
@@ -98,30 +99,22 @@ export default function Home() {
         </div>
       </section>
 
+      {/* SERVICES */}
       <section id="services" className="mb-12 scroll-mt-24">
         <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-md p-8 mb-12">
           <h2 className="text-4xl md:text-5xl font-extrabold text-green-900 text-center mb-8">Our Services</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <a
-              href="#contact"
-              className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg border border-amber-100 transition-transform transform hover:-translate-y-1"
-            >
+            <a href="#contact" className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg border border-amber-100 transition-transform transform hover:-translate-y-1">
               <img src="/treeremoval1.jpg" alt="Land Clearing" className="w-full h-80 object-cover rounded-xl mb-4 px-2" />
               <h3 className="text-2xl font-bold text-black mb-2">Land Clearing</h3>
               <p className="text-lg text-gray-700">Efficient land clearing services to ready your property for construction or landscaping.</p>
             </a>
-            <a
-              href="#contact"
-              className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg border border-amber-100 transition-transform transform hover:-translate-y-1"
-            >
+            <a href="#contact" className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg border border-amber-100 transition-transform transform hover:-translate-y-1">
               <img src="/grading2.jpg" alt="Grading" className="w-full h-80 object-cover rounded-xl mb-4 px-2" />
               <h3 className="text-2xl font-bold text-black mb-2">Grading</h3>
               <p className="text-lg text-gray-700">Precision grading services to ensure proper leveling, drainage, and site preparation.</p>
             </a>
-            <a
-              href="#contact"
-              className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg border border-amber-100 transition-transform transform hover:-translate-y-1"
-            >
+            <a href="#contact" className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg border border-amber-100 transition-transform transform hover:-translate-y-1">
               <img src="/grading5.jpg" alt="Site Prep" className="w-full h-80 object-cover rounded-xl mb-4 px-2" />
               <h3 className="text-2xl font-bold text-black mb-2">Site Prep</h3>
               <p className="text-lg text-gray-700">Comprehensive site preparation including grading, leveling, and soil stabilization.</p>
@@ -148,73 +141,21 @@ export default function Home() {
                 </div>
               )}
             </div>
-            <a
-              href="#contact"
-              className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg border border-amber-100 transition-transform transform hover:-translate-y-1"
-            >
+            <a href="#contact" className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg border border-amber-100 transition-transform transform hover:-translate-y-1">
               <img src="/excavating1.jpeg" alt="Excavation" className="w-full h-80 object-cover rounded-xl mb-4 px-2" />
               <h3 className="text-2xl font-bold text-black mb-2">Excavation</h3>
               <p className="text-lg text-gray-700">Professional excavation services for any project size, ensuring safety and precision.</p>
             </a>
-            <a
-              href="#contact"
-              className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg border border-amber-100 transition-transform transform hover:-translate-y-1"
-            >
+            <a href="#contact" className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg border border-amber-100 transition-transform transform hover:-translate-y-1">
               <img src="/skid-steer2.jpg" alt="Skid Steer Services" className="w-full h-80 object-cover rounded-xl mb-4 px-2" />
               <h3 className="text-2xl font-bold text-black mb-2">Skid Steer Services</h3>
-              <p className="text-lg text-gray-700">Versatile skid steer services for grading, material handling, and site cleanup to support your project needs.</p>
+              <p className="text-lg text-gray-700">Versatile skid steer services for grading, material handling, and site cleanup.</p>
             </a>
           </div>
-          <div className="flex flex-col sm:flex-row justify-center gap-4 mt-8">
-            <a href="tel:7042906688" className="bg-green-700 hover:bg-green-800 text-white px-8 py-4 rounded-lg font-bold text-center">Call 704-290-6688</a>
-            <a href="mailto:gce10@gmail.com" className="bg-white text-amber-800 hover:bg-gray-100 px-8 py-4 rounded-lg font-bold text-center">Email Us</a>
-          </div>
         </div>
       </section>
 
-      <div className="my-12 flex justify-center">
-        <div className="w-24 h-1 bg-gradient-to-r from-green-900 to-green-400 rounded-full"></div>
-      </div>
-
-      <section id="about" className="mb-12 scroll-mt-24">
-        <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-md p-8 mb-12">
-          <div className="overflow-hidden flex flex-col md:flex-row">
-            {/* Left: Photo */}
-            <div className="md:w-1/2 w-full flex items-center justify-center">
-              <img
-                src="/gary-headshot.jpg"
-                alt="Excavating equipment at work"
-                className="rounded-xl shadow-md object-contain h-96 w-auto"
-              />
-            </div>
-            {/* Right: Text Content */}
-            <div className="md:w-1/2 w-full flex items-center">
-              <div className="p-6">
-                <h2 className="text-4xl md:text-5xl font-extrabold text-green-900 text-center mb-8">About Us</h2>
-                <p className="text-lg text-gray-700 mb-4">
-                  Green Choice Excavation is a locally owned and operated company specializing in excavation, grading, land clearing, gravel driveways, and site preparation. We pride ourselves on delivering direct customer service with a focus on trust and reliability.
-                </p>
-                <p className="text-lg text-gray-700 mb-4">
-                  Our team is committed to providing competitive pricing without compromising quality, ensuring that every project meets your expectations and budget. Whether you need professional excavation or meticulous grading, we bring expertise and dedication to every job.
-                </p>
-                <p className="text-lg text-gray-700 mb-4">We are proudly based out of Lancaster, South Carolina, and serve customers throughout both North Carolina and South Carolina.</p>
-                <p className="text-lg text-gray-700">
-                  Choose Green Choice Excavation for fair pricing, personalized service, and a trusted local partner for all your site preparation needs.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 mt-6">
-                  <a href="tel:7042906688" className="bg-green-700 hover:bg-green-800 text-white px-6 py-3 rounded-lg font-semibold text-center">Call 704-290-6688</a>
-                  <a href="mailto:gce10@gmail.com" className="bg-white text-amber-800 hover:bg-gray-100 px-6 py-3 rounded-lg font-semibold text-center">Email gce10@gmail.com</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div className="my-12 flex justify-center">
-        <div className="w-24 h-1 bg-gradient-to-r from-green-900 to-green-400 rounded-full"></div>
-      </div>
-
+      {/* GALLERY */}
       <section id="gallery" className="scroll-mt-24">
         <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-md p-8 mb-12">
           <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 text-center mb-8">Gallery</h2>
@@ -224,49 +165,34 @@ export default function Home() {
               alt={`Gallery image ${currentIndex + 1}`}
               className="rounded-xl shadow-md w-full h-96 object-cover"
             />
-            <button
-              onClick={prevImage}
-              className="absolute top-1/2 left-0 transform -translate-y-1/2 bg-black bg-opacity-30 hover:bg-opacity-50 text-white px-4 py-2 rounded-r-md"
-              aria-label="Previous Image"
-            >
-              &#8592;
-            </button>
-            <button
-              onClick={nextImage}
-              className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-black bg-opacity-30 hover:bg-opacity-50 text-white px-4 py-2 rounded-l-md"
-              aria-label="Next Image"
-            >
-              &#8594;
-            </button>
-          </div>
-          <div className="flex justify-center">
-            <a href="mailto:gce10@gmail.com" className="mt-8 bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg font-bold">Contact Us Today</a>
+            <button onClick={prevImage} className="absolute top-1/2 left-0 transform -translate-y-1/2 bg-black bg-opacity-30 hover:bg-opacity-50 text-white px-4 py-2 rounded-r-md">&#8592;</button>
+            <button onClick={nextImage} className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-black bg-opacity-30 hover:bg-opacity-50 text-white px-4 py-2 rounded-l-md">&#8594;</button>
           </div>
         </div>
       </section>
 
+      {/* CONTACT */}
       <section id="contact" className="mt-12 max-w-4xl mx-auto scroll-mt-24">
         <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-md p-8 mb-12">
           <h2 className="text-4xl md:text-5xl font-extrabold text-green-900 text-center mb-8">Contact</h2>
-          {/* Call/Email Card */}
-          <div className="bg-gradient-to-r from-green-900 to-green-400 text-white rounded-xl shadow-md p-6 mb-8 text-center">
-            <h3 className="text-2xl font-bold mb-4">Ready to Get Started?</h3>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <a
-                href="tel:7042906688"
-                className="bg-white text-green-800 hover:bg-gray-100 px-6 py-3 rounded-lg font-semibold shadow-md text-center"
-              >
-                Call 704-290-6688
-              </a>
-              <a
-                href="mailto:gce10@gmail.com"
-                className="bg-white text-amber-700 hover:bg-gray-100 px-6 py-3 rounded-lg font-semibold shadow-md text-center"
-              >
-                Email gce10@gmail.com
-              </a>
-            </div>
-          </div>
-          <form action="https://formspree.io/f/your-form-id" method="POST" className="space-y-6">
+
+          <form
+            onSubmit={async (e) => {
+              e.preventDefault();
+              const form = e.currentTarget;
+              const data = new FormData(form);
+              const res = await fetch("https://formspree.io/f/mpwovyle", {
+                method: "POST",
+                headers: { Accept: "application/json" },
+                body: data,
+              });
+              if (res.ok) {
+                setSubmitted(true);
+                form.reset();
+              }
+            }}
+            className="space-y-6"
+          >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Name<span className="text-red-600">*</span></label>
@@ -277,6 +203,7 @@ export default function Home() {
                 <input type="tel" id="phone" name="phone" required className="w-full p-3 border border-gray-300 rounded-lg" />
               </div>
             </div>
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email</label>
@@ -287,6 +214,7 @@ export default function Home() {
                 <input type="text" id="address" name="address" required className="w-full p-3 border border-gray-300 rounded-lg" />
               </div>
             </div>
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label htmlFor="city" className="block text-sm font-medium text-gray-700 mb-1">City</label>
@@ -308,62 +236,38 @@ export default function Home() {
                 </select>
               </div>
             </div>
+
             <fieldset>
               <legend className="block text-sm font-medium text-gray-700 mb-1">Services Needed</legend>
               <div className="space-y-2">
-                <div>
-                  <label className="inline-flex items-center">
-                    <input type="checkbox" name="servicesNeeded" value="Land Clearing" className="mr-2" required />
-                    Land Clearing
+                {["Land Clearing","Grading","Site Prep","Gravel Driveways","Excavation","Skid Steer Services","Other"].map((service) => (
+                  <label key={service} className="inline-flex items-center">
+                    <input type="checkbox" name="services[]" value={service} className="mr-2" />
+                    {service}
                   </label>
-                </div>
-                <div>
-                  <label className="inline-flex items-center">
-                    <input type="checkbox" name="servicesNeeded" value="Grading" className="mr-2" required />
-                    Grading
-                  </label>
-                </div>
-                <div>
-                  <label className="inline-flex items-center">
-                    <input type="checkbox" name="servicesNeeded" value="Site Prep" className="mr-2" required />
-                    Site Prep
-                  </label>
-                </div>
-                <div>
-                  <label className="inline-flex items-center">
-                    <input type="checkbox" name="servicesNeeded" value="Gravel Driveways" className="mr-2" required />
-                    Gravel Driveways
-                  </label>
-                </div>
-                <div>
-                  <label className="inline-flex items-center">
-                    <input type="checkbox" name="servicesNeeded" value="Excavation" className="mr-2" required />
-                    Excavation
-                  </label>
-                </div>
-                <div>
-                  <label className="inline-flex items-center">
-                    <input type="checkbox" name="servicesNeeded" value="Skid Steer Services" className="mr-2" required />
-                    Skid Steer Services
-                  </label>
-                </div>
-                <div>
-                  <label className="inline-flex items-center">
-                    <input type="checkbox" name="servicesNeeded" value="Other" className="mr-2" required />
-                    Other
-                  </label>
-                </div>
+                ))}
               </div>
             </fieldset>
+
             <div>
               <label htmlFor="comments" className="block text-sm font-medium text-gray-700 mb-1">Comments</label>
               <textarea id="comments" name="comments" rows={4} className="w-full p-3 border border-gray-300 rounded-lg" required></textarea>
             </div>
+
             <div className="flex items-start space-x-2 text-sm text-gray-700 mt-4">
               <input type="checkbox" id="acknowledge" name="acknowledge" required />
               <label htmlFor="acknowledge">I understand there is a minimum $650 project cost requiring heavy equipment</label>
             </div>
+
+            <input type="text" name="_gotcha" style={{ display: "none" }} />
+
             <button type="submit" className="bg-green-700 hover:bg-green-800 text-white px-6 py-3 rounded-lg font-bold mt-4">Submit</button>
+
+            {submitted && (
+              <p className="text-green-700 font-medium mt-4 text-center">
+                Thank you for your submission! I will contact you as soon as I can.
+              </p>
+            )}
           </form>
         </div>
       </section>
