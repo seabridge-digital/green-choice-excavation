@@ -239,7 +239,7 @@ export default function Home() {
 
             <fieldset>
               <legend className="block text-sm font-medium text-gray-700 mb-1">Services Needed</legend>
-              <div className="space-y-2">
+              <div className="flex flex-wrap gap-x-6 gap-y-2">
                 {["Land Clearing","Grading","Site Prep","Gravel Driveways","Excavation","Skid Steer Services","Other"].map((service) => (
                   <label key={service} className="inline-flex items-center">
                     <input type="checkbox" name="services[]" value={service} className="mr-2" />
