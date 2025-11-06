@@ -1,4 +1,4 @@
-
+import Link from "next/link";
 
 export const metadata = {
   title: "Thank You - Green Choice Excavation",
@@ -13,12 +13,12 @@ export default function ThankYou() {
         <p className="text-lg text-gray-700 mb-6">
           Thank you for your submission. We’ll contact you as soon as we can.
         </p>
-        <a
+        <Link
           href="/"
           className="inline-block bg-green-700 hover:bg-green-800 text-white px-6 py-3 rounded-lg font-bold"
         >
           Return Home
-        </a>
+        </Link>
       </div>
     </main>
   );
