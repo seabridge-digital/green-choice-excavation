@@ -187,8 +187,8 @@ export default function Home() {
                 body: data,
               });
               if (res.ok) {
-                setSubmitted(true);
                 form.reset();
+                window.location.href = "/thank-you";
               }
             }}
             className="space-y-6"
@@ -263,11 +263,6 @@ export default function Home() {
 
             <button type="submit" className="bg-green-700 hover:bg-green-800 text-white px-6 py-3 rounded-lg font-bold mt-4">Submit</button>
 
-            {submitted && (
-              <p className="text-green-700 font-medium mt-4 text-center">
-                Thank you for your submission! I will contact you as soon as I can.
-              </p>
-            )}
           </form>
         </div>
       </section>
