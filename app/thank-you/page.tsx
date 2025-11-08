@@ -1,6 +1,4 @@
 // app/thank-you/page.tsx
-"use client";
-
 import Link from "next/link";
 import Script from "next/script";
 
@@ -13,7 +11,7 @@ export const metadata = {
 export default function ThankYou() {
   return (
     <>
-      {/* Google Ads conversion: fires when this page loads */}
+      {/* Google Ads conversion fires on page load */}
       <Script
         id="ga-conversion-submit-lead-form"
         strategy="afterInteractive"
