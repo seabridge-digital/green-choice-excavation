@@ -1,6 +1,5 @@
 // components/StickyCallBar.tsx
-
-import PhoneNumber, { TEL_NUMBER, DISPLAY_NUMBER } from "./PhoneNumber";
+import { TEL_NUMBER, DISPLAY_NUMBER } from "./PhoneNumber";
 
 export default function StickyCallBar() {
   return (
