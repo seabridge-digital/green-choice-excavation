@@ -3,11 +3,11 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react";
+import StickyCallBar from "@/components/StickyCallBar";
 
 const inter = Inter({ subsets: ["latin"] });
 
-// Make sure this matches the tag Google showed: AW-17691850954
-// You can also set NEXT_PUBLIC_GOOGLE_TAG_ID in Vercel to this same value.
+// Use environment variable if set, fallback to your Google Ads ID
 const GA_ID = process.env.NEXT_PUBLIC_GOOGLE_TAG_ID || "AW-17691850954";
 
 export const metadata = {
@@ -25,7 +25,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/logo-svg.svg" type="image/svg+xml" />
 
-        {/* ---- Google tag (gtag.js) ---- */}
+        {/* ------------------ Google tag (gtag.js) ------------------ */}
         <Script
           id="gtag-src"
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
@@ -40,21 +40,25 @@ export default function RootLayout({
           `}
         </Script>
 
-        {/* ---- Google Ads phone snippet (for forwarding numbers) ----
-           After you finish creating the “Calls from website visits”
-           conversion, Google will show you a block called “Phone snippet”.
-
-           Copy that EXACT JS and paste it inside the template below,
-           replacing ONLY the comment.
-        */}
+        {/* ------------------ Google Ads Phone Snippet ------------------
+            After finishing the “Calls from website visits” setup,
+            Google will give you a PHONE SNIPPET.
+            Paste that exact code below, replacing ONLY the comment.
+        ---------------------------------------------------------------- */}
         <Script id="google-ads-phone-snippet" strategy="afterInteractive">
           {`
-            // PASTE THE EXACT PHONE SNIPPET FROM GOOGLE HERE
+            // PASTE THE EXACT GOOGLE PHONE SNIPPET HERE
           `}
         </Script>
       </head>
+
       <body className={inter.className}>
         {children}
+
+        {/* Sticky mobile call bar */}
+        <StickyCallBar />
+
+        {/* Vercel Analytics */}
         <Analytics />
       </body>
     </html>
