@@ -3,7 +3,9 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react";
+
 import StickyCallBar from "@/components/StickyCallBar";
+import Footer from "./footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -41,9 +43,7 @@ export default function RootLayout({
         </Script>
 
         {/* ------------------ Google Ads Phone Snippet ------------------
-            After finishing the “Calls from website visits” setup,
-            Google will give you a PHONE SNIPPET.
-            Paste that exact code below, replacing ONLY the comment.
+            Paste the PHONE SNIPPET from Google here.
         ---------------------------------------------------------------- */}
         <Script id="google-ads-phone-snippet" strategy="afterInteractive">
           {`
@@ -55,10 +55,12 @@ export default function RootLayout({
       <body className={inter.className}>
         {children}
 
-        {/* Sticky mobile call bar */}
+        {/* Regular footer at bottom of page */}
+        <Footer />
+
+        {/* Sticky mobile call bar (shows only on small screens) */}
         <StickyCallBar />
 
-        {/* Vercel Analytics */}
         <Analytics />
       </body>
     </html>
