@@ -42,12 +42,12 @@ export default function RootLayout({
           `}
         </Script>
 
-        {/* ------------------ Google Ads Phone Snippet ------------------
-            Paste the PHONE SNIPPET from Google here.
-        ---------------------------------------------------------------- */}
+        {/* ------------------ Google Ads Phone Snippet ------------------ */}
         <Script id="google-ads-phone-snippet" strategy="afterInteractive">
           {`
-            // PASTE THE EXACT GOOGLE PHONE SNIPPET HERE
+            gtag('config', 'AW-17691850954/Ll1kCKiyncAbEMrxkPRB', {
+              'phone_conversion_number': '704-290-6688'
+            });
           `}
         </Script>
       </head>
@@ -55,10 +55,10 @@ export default function RootLayout({
       <body className={inter.className}>
         {children}
 
-        {/* Regular footer at bottom of page */}
+        {/* Site footer */}
         <Footer />
 
-        {/* Sticky mobile call bar (shows only on small screens) */}
+        {/* Sticky mobile + desktop call bar */}
         <StickyCallBar />
 
         <Analytics />
